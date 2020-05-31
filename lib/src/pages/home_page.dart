@@ -122,6 +122,10 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
               ),
             ),
             const SizedBox(height: 15),
+            RaisedButton(
+                child: Text("Details Page"),
+                onPressed: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => DetailsPage()))),
           ],
         ),
       ),
