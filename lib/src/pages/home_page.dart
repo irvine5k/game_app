@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'details/details_page.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
