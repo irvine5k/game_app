@@ -23,30 +23,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: const Color(0xFF040B17),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 30),
+          padding: const EdgeInsets.only(right: 20),
           child: this.trailing,
         ),
       ],
       flexibleSpace: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         height: this.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: statusBarHeight),
-            Text("Welcome back",
-                style: const TextStyle(color: Color(0xFF9B9DA3), fontSize: 16)),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Text(
+                "Welcome back",
+                style: const TextStyle(
+                  color: Color(0xFF9B9DA3),
+                  fontSize: 16,
+                ),
+              ),
+            ),
             const SizedBox(height: 10),
-            Text(
-              this.title,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Text(
+                this.title,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 20),
             this.textField,
+            const SizedBox(height: 10),
           ],
         ),
       ),

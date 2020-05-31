@@ -12,23 +12,25 @@ class CategoryIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Container(
-        height: 50,
-        width: 50,
-        child: Column(
-          children: <Widget>[
-            Expanded(child: Image.asset(iconAsset)),
-            const SizedBox(height: 10),
-            Text(
-              label,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-              ),
-            )
-          ],
+    return Expanded(
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          height: 50,
+          width: 50,
+          child: Column(
+            children: <Widget>[
+              Expanded(child: Image.asset(iconAsset)),
+              const SizedBox(height: 10),
+              Text(
+                label,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

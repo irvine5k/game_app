@@ -1,134 +1,84 @@
 import 'package:flutter/material.dart';
-
-import 'details/details_page.dart';
+import 'package:game_app/src/bottom_app_bar_widget.dart';
+import 'package:game_app/src/widgets/categories_widget.dart';
+import 'package:game_app/src/widgets/custom_app_bar_widget.dart';
+import 'package:game_app/src/widgets/custom_horizontal_list.dart';
+import 'package:game_app/src/widgets/newComingSection.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      CategoriesWidget(),
-    ]);
-  }
-}
-
-class CategoriesWidget extends StatefulWidget {
-  @override
-  _CategoriesWidgetState createState() => _CategoriesWidgetState();
-}
-
-class _CategoriesWidgetState extends State<CategoriesWidget> {
-  bool expanded = false;
-
-  void toggleExpanded() => setState(() {
-        expanded = !expanded;
-      });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: toggleExpanded,
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        height: expanded ? 200 : 100,
-        decoration: BoxDecoration(
-          color: Color(0xff1F2430),
-          borderRadius: BorderRadius.circular(20),
-        ),
+    return Scaffold(
+      backgroundColor: const Color(0xFF040B17),
+      body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            Expanded(
-              child: AnimatedPadding(
-                duration: Duration(milliseconds: 300),
-                padding: EdgeInsets.symmetric(vertical: expanded ? 20 : 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.red,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.red,
-                          )
-                        ],
-                      ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 10),
+            CustomAppBar(
+              height: MediaQuery.of(context).size.height * 0.3,
+              title: 'Flutterando',
+              textField: Container(
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFF1E2430),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
                     ),
-                    if (expanded)
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Container(
-                              height: 50,
-                              width: 50,
-                              color: Colors.red,
-                            ),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              color: Colors.red,
-                            ),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              color: Colors.red,
-                            ),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              color: Colors.red,
-                            ),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              color: Colors.red,
-                            )
-                          ],
-                        ),
-                      ),
-                  ],
+                    hintText: "Search the games...",
+                    hintStyle: TextStyle(
+                      color: Color(0xFF9B9DA3),
+                      fontSize: 14,
+                    ),
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Color(0xFF9B9DA3),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CategoriesWidget(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                'Games you must try',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
               ),
             ),
             Container(
-              height: 5,
-              width: 25,
-              decoration: BoxDecoration(
-                color: Color(0xff4C5059),
-                borderRadius: BorderRadius.circular(20),
+              height: MediaQuery.of(context).size.height * 0.32,
+              child: HorizontalList(
+                gameCardList: _getCardList(),
               ),
             ),
-            const SizedBox(height: 15),
-            RaisedButton(
-                child: Text("Details Page"),
-                onPressed: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => DetailsPage()))),
+            NewComingSection(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBarWidget(),
     );
   }
+
+  List<GameCard> _getCardList() => List.generate(
+        5,
+        (index) => GameCard(
+          gameIconUrl: "https://i.imgur.com/1rCD5ly.png",
+          gameCategory: "MMORPG",
+          gameName: "Spin Arena $index",
+          stars: 4.5,
+          gameCoverUrl:
+              "https://cdn-www.bluestacks.com/bs-images/54a5d819c7ea410c5863f3ee24c8c805-298x184.png",
+        ),
+      );
 }

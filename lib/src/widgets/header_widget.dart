@@ -90,7 +90,27 @@ class HeaderWidget extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          Positioned(
+            left: 20,
+            top: 20,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              height: 30,
+              width: 30,
+              child: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
+                iconSize: 15,
+              ),
+            ),
+          ),
         ],
       ),
     );

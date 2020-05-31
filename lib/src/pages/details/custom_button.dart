@@ -20,7 +20,6 @@ class CustomButton extends StatelessWidget {
         ..width(double.maxFinite)
         ..padding(vertical: 12)
         ..margin(vertical: 16, horizontal: 16)
-        ..height(50)
         ..ripple(true)
         ..alignmentContent.center()
         ..linearGradient(
@@ -30,7 +29,10 @@ class CustomButton extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-            color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

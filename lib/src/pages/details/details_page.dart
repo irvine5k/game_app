@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_app/src/pages/details/description_details.dart';
+import 'package:game_app/src/widgets/header_widget.dart';
 
 import 'custom_button.dart';
 
@@ -12,14 +13,21 @@ class DetailsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 1, child: Container()),
+          HeaderWidget(),
+          const SizedBox(
+            height: 20,
+          ),
           Divider(
             height: 1,
             endIndent: null,
             indent: 0,
             color: Colors.grey.withOpacity(0.8),
           ),
-          DescriptionDetails(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: DescriptionDetails(),
+            ),
+          ),
           Divider(
             height: 1,
             endIndent: null,

@@ -49,7 +49,7 @@ class DescriptionDetails extends StatelessWidget {
                 "About",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -68,12 +68,12 @@ class DescriptionDetails extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                        text: '   Read more...',
-                        style: TextStyle(
-                          color: Color(0xff51469B),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        )),
+                      text: '   Read more...',
+                      style: TextStyle(
+                        color: Color(0xff51469B),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -88,7 +88,7 @@ class DescriptionDetails extends StatelessWidget {
                     "Reviews & Ratings",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -113,7 +113,7 @@ class DescriptionDetails extends StatelessWidget {
                     "4.5",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 56,
+                      fontSize: 50,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

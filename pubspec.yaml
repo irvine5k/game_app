@@ -50,6 +50,7 @@ flutter:
     - images/icon1.png
     - images/icon2.png
     - images/icon3.png
+    - images/icon4.png
     - assets/details/
     - assets/ball.png
     - assets/cards.png

@@ -1,3 +1,4 @@
+import 'package:division/division.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalList extends StatefulWidget {
@@ -14,10 +15,11 @@ class _HorizontalListState extends State<HorizontalList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.only(left: 20),
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: widget.gameCardList.length,
-      itemBuilder: (context, index) => widget.gameCardList[index] 
+      itemBuilder: (context, index) => widget.gameCardList[index],
     );
   }
 }
@@ -48,23 +50,23 @@ class GameCard extends StatelessWidget {
         color: Color(0xff030913),
         borderRadius: BorderRadius.circular(13),
       ),
-      width: size.width * .8,
-      height: 250,
+      width: size.width,
       child: Column(
         children: <Widget>[
           //Top Card
           Container(
-            height: 150,
-            width: size.width * .8,
+            height: size.height * 0.15,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(13)),
               image: DecorationImage(
-                image: NetworkImage(gameCoverUrl,),
-                fit: BoxFit.cover
-              )
+                image: NetworkImage(
+                  gameCoverUrl,
+                ),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          Spacer(),
+          const SizedBox(height: 20),
           //Footer Card
           Row(
             children: <Widget>[
